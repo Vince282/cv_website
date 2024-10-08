@@ -1,0 +1,8 @@
+<!-- templates/cv_app/personal_info.html -->
+
+<h1>Personal Information</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>

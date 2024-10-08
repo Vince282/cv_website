@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Projects</h2>
+<a href="{% url 'add_project' %}" class="btn btn-primary">Add Project</a>
+<ul>
+    {% for project in projects %}
+    <li>
+        <strong>{{ project.project_title }}</strong>: {{ project.description }} | <a href="{{ project.project_url }}">View</a>
+        <a href="{% url 'edit_project' project.id %}">Edit</a> |
+        <a href="{% url 'delete_project' project.id %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

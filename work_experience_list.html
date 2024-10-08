@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Work Experience</h2>
+<a href="{% url 'add_work_experience' %}" class="btn btn-primary">Add Work Experience</a>
+<ul>
+    {% for experience in work_experiences %}
+    <li>
+        <strong>{{ experience.job_title }}</strong> at {{ experience.company }} ({{ experience.start_date }} - {{ experience.end_date }})
+        <a href="{% url 'edit_work_experience' experience.id %}">Edit</a> |
+        <a href="{% url 'delete_work_experience' experience.id %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Education</h2>
+<a href="{% url 'add_education' %}" class="btn btn-primary">Add Education</a>
+<ul>
+    {% for education in education %}
+    <li>
+        <strong>{{ education.degree }}</strong> at {{ education.school }} ({{ education.start_year }} - {{ education.end_year }})
+        <a href="{% url 'edit_education' education.id %}">Edit</a> |
+        <a href="{% url 'delete_education' education.id %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
